@@ -1,8 +1,8 @@
-# Your Name Here
+# Matthew Pikal
 # UWYO COSC 1010
-# Submission Date
+# Submission Date:10/15/2024
 # Lab 06
-# Lab Section: 
+# Lab Section: 11
 # Sources, people worked with, help given to: 
 # your
 # comments
@@ -71,6 +71,10 @@ print(len(random_string)) # Print out the size for reference
 # Output which letter occurred the least 
 # Output what the percentage of the string each character is, again in alphabetical
 
+
+
+
+
 #Tips and trick:
 # You can iterate through strings like you would a list
 # All characters are lowercase 
@@ -84,17 +88,37 @@ print(len(random_string)) # Print out the size for reference
 #Will need to first declare a dictionary 
 
 # Output: each letter and its corresponding occurrence in alphabetical order
-
-print("*"*75)
+dict = {}
+for letter in random_string:
+    if letter in dict:
+        dict[letter] += 1
+    else:
+        dict[letter] = 1
+dict_sorted = sorted(dict)
+for key in dict_sorted:
+    print(key,dict[key])
 # Output which letter occurred the most 
-
 most_occurred = ""
 least_occurred = ""
+sort_items = sorted(dict.values())
+lowest = sort_items[0]
+highest = sort_items[-1]
+for key in dict:
+
+    if dict[key] == highest:
+        most_occurred = key
+    if dict[key] == lowest:
+        least_occurred = key
+
+
+
 
 print(f"The letter that occurred the most is {most_occurred}")
 print("*"*75)
 # Output which letter occurred the least 
-print(f"The letter that occurred the most is {least_occurred}")
+print(f"The letter that occurred the least is {least_occurred}")
 print("*"*75)
 
 # Output what the percentage of the string each character is, again in alphabetical
+for key in dict_sorted:
+    print(f'{key} is {dict[key] / len(random_string) * 100}% of the list!') 
